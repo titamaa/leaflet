@@ -41,8 +41,18 @@ export class HomePage {
 
     L.control.layers(baseLayers).addTo(this.map);
 
-    // Menambahkan marker
-    const marker = L.marker([-7.54056, 110.4463]).addTo(this.map);
+    // Menambahkan marker dengan icon default Leaflet
+    const marker = L.marker([-7.54056, 110.4463], {
+      icon: L.icon({
+        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+        shadowSize: [41, 41]
+      })
+    }).addTo(this.map);
+
     marker.bindPopup('Puncak Merapi').openPopup();
   }
 }
